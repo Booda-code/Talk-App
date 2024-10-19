@@ -10,17 +10,15 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 38),
-            child: Image.asset('assets/images/logo.png'),
-          ),
+          Image.asset('assets/images/logo.png'),
           Text(
             'Talk App',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 38),
           ),
           SizedBox(
-            height: 75,
+            height:50,
           ),
           Padding(
             padding: const EdgeInsets.only(right: 325, bottom: 5),
@@ -39,7 +37,7 @@ class SignInView extends StatelessWidget {
             text: 'Password',
           ),
           SizedBox(
-            height: 38,
+            height: 20,
           ),
           SizedBox(
             width: 375,
@@ -59,17 +57,18 @@ class SignInView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('don\'t have an account '),
+                Text('don\'t have an account ',style: TextStyle(fontSize: 18),),
                 GestureDetector(
                   onTap: () {Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUpView()));},
                   child: Text(
                     'Sign up',
                     style: TextStyle(
-                      color: Colors.blueAccent.withOpacity(0.8),
+                      fontSize: 18,
+                      color: Colors.blue.withOpacity(0.9),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
