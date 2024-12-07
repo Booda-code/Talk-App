@@ -2,17 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    super.key, required this.text,
+   CustomTextField({
+    super.key, required this.text,this.onChanged, required this.isPassword
   });
-final String text;
+   Function(String)? onChanged;
+   final String text;
+  final bool isPassword;
   @override
   Widget build(BuildContext context) {
     return  Padding(
       padding: EdgeInsets.symmetric(horizontal: 8),
       child: SizedBox(
         height: 70,
-        child: TextField(
+        child: TextFormField(
+          obscureText: isPassword,
+          validator: (data) {
+            if(data!.isEmpty){
+              return 'the field is required';
+            }
+            return null;
+          },
+          onChanged: onChanged,
             decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
               horizontal: 16,
